@@ -30,8 +30,8 @@ async function run(task) {
 }
 
 document.querySelectorAll(".tab").forEach((btn) => {
-  btn.addEventlistener("click", () => {
-   document.querySelectorAll(".tab").forEach((b) => b.classlist.toggle("active", b === btn));
+  btn.addEventListener("click", () => {
+   document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b === btn));
    document.querySelectorAll(".panel").forEach((p) => (p.hidden = p.id !== btn.dataset.tab));
   });
 });
@@ -81,7 +81,7 @@ function resetResidentForm() {
   $("residentCancel").hidden = true;
 }
 
-$("residentForm").addEventlistener("submit", (e) => {
+$("residentForm").addEventListener("submit", (e) => {
   e.preventDefault();
   run(async () => {
     const body = JSON.stringify({
@@ -100,9 +100,9 @@ $("residentForm").addEventlistener("submit", (e) => {
   });
 });
 
-$("residentCancel").addEventlistener("click", resetResidentForm);
+$("residentCancel").addEventListener("click", resetResidentForm);
 
-$("residentRows").addEventlistener("click", (e) => {
+$("residentRows").addEventListener("click", (e) => {
   const editId = e.target.dataset.edit;
   const delId = e.target.dataset.del;
   if(editId) {
@@ -164,7 +164,7 @@ function resetTransactionForm() {
   $("transactionCancel").hidden = true;
 }
 
-$("transactionForm").addEventlistener("submit", (e) => {
+$("transactionForm").addEventListener("submit", (e) => {
   e.preventDefault();
   run(async () => {
     const body = JSON.stringify({
@@ -183,9 +183,9 @@ $("transactionForm").addEventlistener("submit", (e) => {
   });
 });
 
-$("transactionCancel").addEventlistener("click", resetTransactionForm);
+$("transactionCancel").addEventListener("click", resetTransactionForm);
 
-$("transactionRows").addEventlistener("click", (e) => {
+$("transactionRows").addEventListener("click", (e) => {
   const editId = e.target.dataset.edit;
   const delId = e.target.dataset.del;
   if(editId) {
@@ -210,7 +210,7 @@ $("transactionRows").addEventlistener("click", (e) => {
   }
 });
 
-$("transactionRows").addEventlistener("change", (e) => {
+$("transactionRows").addEventListener("change", (e) => {
   const id = e.target.dataset.pay;
   if(!id) return;
   run(async () => {
