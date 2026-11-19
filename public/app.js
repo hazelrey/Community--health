@@ -17,7 +17,7 @@ async function api(url, options = {}) {
 }
 
 function showMessage(text, isError = false) {
- constbox = $("message");
+ const box = $("message");
  if(!box) return;
  box.textContent = text;
  box.className = "message" + (isError ? " error" : "");
