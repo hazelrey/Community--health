@@ -11,7 +11,7 @@ export const SERVICES = [
 
 const transactionSchema = new mongoose.Schema(
   {
-    resident: { type: mongoose.Schema.Types.ObjectId, ref: "Resident", required: [true, "resident is required"] },
+    resident: { type: mongoose.Schema.Types.ObjectId, ref: "Resident", required: [true, "Resident is required"] },
     service: { type: String, enum: SERVICES, required: [true, "Service is required"] },
     amount: { type: Number, min: 0, default: 0 },
     paymentStatus: { type: String, enum: ["Paid", "Unpaid", "Free"], default: "Free" },
