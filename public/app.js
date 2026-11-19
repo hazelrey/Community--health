@@ -222,7 +222,7 @@ $("transactionRows").addEventListener("change", (e) => {
 });
 
 async function refreshAll() {
-  await Promise.all([loadResidents(), loadtransactions(), loadSummary()]);
+  await Promise.all([loadResidents(), loadTransactions(), loadSummary()]);
 }
 
 run(async () => {
