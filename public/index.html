@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Health Service and Transaction System</title>
+  <link href=https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="org">Barangay Health Center</p>
+      <h1>Community Health Service and Transaction System</h1>
+      <nav>
+        <button class="tab active" data-tab="dashboard">Dashboard</button>
+        <button class="tab" data-tab="residents">Residents</button>
+        <button class="tab" data-tab="transactions">Transactions</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="message" class="message" role="status" hidden></div>
+
+    <section id="dashboard" class="panel">
+      <div class="stats" id="stats"></div>
+      <h2>Services availed</h2>
+      <div id="serviceBreakdown" class="breakdown"></div>
+    </section>
+
+    <section id="residents" class="panel" hidden>
+      <h2 id="residentFormTitle">Add resident</h2>
+      <form id="residentForm" class="form">
+        <input type="hidden" id="residentId" />
+        <label>Full name<input id="fullName" required /></label>
+        <label>Age<input id="age" type="number" min="0" max="120" required /></label>
+        <label>Sex
+          <select id="sex" required>
+            <option value="">Select sex</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </label>
+        <label>Purok<input id="purok" required /></label>
+        <label>Contact number<input id="contact" /></label>
+        <label>Address<input id="address" /></label>
+        <div class="actions">
+          <button class="primary" type="submit">Save resident</button>
+          <button type="button" id="residentCancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+
+      <h2>Resident records</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Name</th><th>Age</th><th>Sex</th><th>Purok</th><th>Contact</th><th>Actions</th></tr></thead>
+          <tbody id="residentRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="transactions" class="panel" hidden>
+      <h2 id="transactionFormTitle">Record a service</h2>
+      <form id="transactionForm" class="form">
+        <input type="hidden" id="transactionId" />
+        <label>Resident<select id="tResident" required></select></label>
+        <label>Service<select id="tService" required></select></label>
+        <label>Fee (PHP)<input id="tAmount" type="number" min="0" step="0.01" value="0" /></label>
+        <label>Payment
+          <select id="tPayment">
+            <option>Free</option>
+            <option>Paid</option>
+            <option>Unpaid</option>
+          </select>
+        </label>
+        <label>Service date<input id="tDate" type="date" required /></label>
+        <label>Notes<input id="tNotes" /></label>
+        <div class="actions">
+          <button class="primary" type="submit">Save transaction</button>
+          <button type="button" id="transactionCancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+
+      <h2>Transaction records</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Resident</th><th>Service</th><th>Fee</th><th>Payment</th><th>Actions</th></tr></thead>
+          <tbody id="transactionRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Health Service and Transaction System</title>
+  <link href=https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <p class="org">Barangay Health Center</p>
+      <h1>Community Health Service and Transaction System</h1>
+      <nav>
+        <button class="tab active" data-tab="dashboard">Dashboard</button>
+        <button class="tab" data-tab="residents">Residents</button>
+        <button class="tab" data-tab="transactions">Transactions</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="message" class="message" role="status" hidden></div>
+
+    <section id="dashboard" class="panel">
+      <div class="stats" id="stats"></div>
+      <h2>Services availed</h2>
+      <div id="serviceBreakdown" class="breakdown"></div>
+    </section>
+
+    <section id="residents" class="panel" hidden>
+      <h2 id="residentFormTitle">Add resident</h2>
+      <form id="residentForm" class="form">
+        <input type="hidden" id="residentId" />
+        <label>Full name<input id="fullName" required /></label>
+        <label>Age<input id="age" type="number" min="0" max="120" required /></label>
+        <label>Sex
+          <select id="sex" required>
+            <option value="">Select sex</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </label>
+        <label>Purok<input id="purok" required /></label>
+        <label>Contact number<input id="contact" /></label>
+        <label>Address<input id="address" /></label>
+        <div class="actions">
+          <button class="primary" type="submit">Save resident</button>
+          <button type="button" id="residentCancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+
+      <h2>Resident records</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Name</th><th>Age</th><th>Sex</th><th>Purok</th><th>Contact</th><th>Actions</th></tr></thead>
+          <tbody id="residentRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="transactions" class="panel" hidden>
+      <h2 id="transactionFormTitle">Record a service</h2>
+      <form id="transactionForm" class="form">
+        <input type="hidden" id="transactionId" />
+        <label>Resident<select id="tResident" required></select></label>
+        <label>Service<select id="tService" required></select></label>
+        <label>Fee (PHP)<input id="tAmount" type="number" min="0" step="0.01" value="0" /></label>
+        <label>Payment
+          <select id="tPayment">
+            <option>Free</option>
+            <option>Paid</option>
+            <option>Unpaid</option>
+          </select>
+        </label>
+        <label>Service date<input id="tDate" type="date" required /></label>
+        <label>Notes<input id="tNotes" /></label>
+        <div class="actions">
+          <button class="primary" type="submit">Save transaction</button>
+          <button type="button" id="transactionCancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+
+      <h2>Transaction records</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Resident</th><th>Service</th><th>Fee</th><th>Payment</th><th>Actions</th></tr></thead>
+          <tbody id="transactionRows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
