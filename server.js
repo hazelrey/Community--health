@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import residentRoutes from "./routes/residents.js";
-import transactionRoutes from"./routes/transactions.js";
-import reportRoutes from"./routes/reports.js";
+import residentRoutes from "./Routes/residents.js";
+import transactionRoutes from"./Routes/transactions.js";
+import reportRoutes from"./Routes/reports.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
