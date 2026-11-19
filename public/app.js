@@ -17,12 +17,13 @@ async function api(url, options = {}) {
 }
 
 function showMessage(text, isError = false) {
-  constbox = $("message");
+ constbox = $("message");
+ if(!box) return;
  box.textContent = text;
  box.className = "message" + (isError ? " error" : "");
  box.hidden = false;
-  clearTimeout(showMessage.t);
-  showMessage.t = setTimeout(() => (box.hidden = true), 4000);
+ clearTimeout(showMessage.t);
+ showMessage.t = setTimeout(() => (box.hidden = true), 4000);
 }
 
 async function run(task) {
